@@ -1,0 +1,12 @@
+{ 
+    "user1" : [
+                { id:"1",counter:"FirstCounter" , currentCount:"230" },
+                { id:"2",counter:"SecondCounter" , currentCount:"20" },
+                { id:"3",counter:"ThirdCounter" , currentCount:"50" } 
+            ],
+    "user2" : [
+                { id:"1",counter:"FirstCounter" , currentCount:"230" },
+                { id:"2",counter:"SecondCounter" , currentCount:"20" },
+                { id:"3",counter:"ThirdCounter" , currentCount:"50" } 
+            ]
+}
