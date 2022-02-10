@@ -1,13 +1,27 @@
-function changeCountTotal(action){
-    var counterTotal = parseInt(document.getElementById("countTotal").innerHTML);
+function changeCountTotal(action,id){
+    var counterTotal = parseInt(document.getElementById("countTotal_"+id).innerHTML);
 
     if(action == "minusCount"){
         counterTotal --;
+        updateCountTotal(counterTotal,id);
     }else if(action == "plusCount"){
         counterTotal ++;
+        updateCountTotal(counterTotal,id);
     }
 
-    document.getElementById("countTotal").innerHTML = counterTotal;
+    document.getElementById("countTotal_"+id).innerHTML = counterTotal;
+}
+
+function updateCountTotal(counterTotal,id){
+    $.ajax({
+        url: 'http://localhost/thingCounter/ajax/ajaxCounter.php',
+        type: 'post',
+        data: {'action':'updateCountTotal', "counterTotal":counterTotal , "id":id},
+        success: function(response){  
+            
+            console.log(response);
+        }         
+    });
 }
 
 function saveNewCounter(){
@@ -19,7 +33,7 @@ function saveNewCounter(){
         type: 'post',
         data: {'action':'saveNewCounter', "counterName":counterName , "currentCount":currentCount},
         success: function(response){  
-            if(respone == "true"){
+            if(response == "true"){
                 location.reload();
             }else{
                 alert("Error: " + response);

@@ -28,7 +28,7 @@
             } else {
                 echo "0 results";
             }
-        }else if($type == "INSERT"){
+        }else if($type == "INSERT" || $type == "UPDATE"){
             if($result){
                 $results = true;
             }else{
@@ -42,8 +42,8 @@
         $conn->close();
     }
 
-    function exeSQL($sql){
-        $result = dbConnect($sql,"SELECT");
+    function exeSQL($sql,$type){
+        $result = dbConnect($sql,$type);
         return $result;
     }
 

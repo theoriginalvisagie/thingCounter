@@ -7,13 +7,13 @@
         function displayCounter($user=""){
             // echo $this->getAllCounters();
             echo "<div id='counter'>
-                    <table>
-                        <tr>
-                            <td><h1>First Counter: </h1></td>
-                            <td><h1 id='minusCount' name='minusCount' onclick='changeCountTotal(\"minusCount\")'><i class='fas fa-minus-circle'></i></h1></td>
-                            <td><h1 id='countTotal' name='countTotal'>234</h1></td>
-                            <td><h1 id='plusCount' name='plusCount' onclick='changeCountTotal(\"plusCount\")'><i class='fas fa-plus-circle'></i></h1></td>
-                        </tr>";
+                    <table>";
+                        // <tr>
+                        //     <td><h1>First Counter: </h1></td>
+                        //     <td><h1 id='minusCount' name='minusCount' onclick='changeCountTotal(\"minusCount\")'><i class='fas fa-minus-circle'></i></h1></td>
+                        //     <td><h1 id='countTotal' name='countTotal'>234</h1></td>
+                        //     <td><h1 id='plusCount' name='plusCount' onclick='changeCountTotal(\"plusCount\")'><i class='fas fa-plus-circle'></i></h1></td>
+                        // </tr>";
             $this->getAllCounters();
 
                         echo"<tr>
@@ -51,15 +51,18 @@
         function getAllCounters(){
             $sql = "SELECT * FROM counters";
 
-            $result = exeSQL($sql);
+            $result = exeSQL($sql,"SELECT");
 
             foreach($result as $r){
                 echo "<tr>
                         <td><h1>{$r['name']}: </h1></td>
-                        <td><h1 id='minusCount' name='minusCount' onclick='changeCountTotal(\"minusCount\")'><i class='fas fa-minus-circle'></i></h1></td>
-                        <td><h1 id='countTotal' name='countTotal'>{$r['current_count']}</h1></td>
-                        <td><h1 id='plusCount' name='plusCount' onclick='changeCountTotal(\"plusCount\")'><i class='fas fa-plus-circle'></i></h1></td>
+                        <td><h1 id='minusCount' name='minusCount' onclick='changeCountTotal(\"minusCount\",{$r['id']})'><i class='fas fa-minus-circle'></i></h1></td>
+                        <td><h1 id='countTotal_{$r['id']}' name='countTotal_{$r['id']}'>{$r['current_count']}</h1></td>
+                        <td><h1 id='plusCount' name='plusCount' onclick='changeCountTotal(\"plusCount\",{$r['id']})'><i class='fas fa-plus-circle'></i></h1></td>
                     </tr>";
+                echo "<tr>
+                        <td colspan='3'><hr></td>
+                      </tr>";
             }
 
             // echo "<pre>".print_r($result,true)."</pre>";

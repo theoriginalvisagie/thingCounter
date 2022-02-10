@@ -16,5 +16,12 @@ include_once("../Libraries/sqlLib/sqlLib.php");
         }else{
             echo "false";
         }
+    }else if($_POST['action']=="updateCountTotal"){
+        $currentCount = $_POST['counterTotal'];
+        $id = $_POST['id'];
+
+        $sql = "UPDATE counters SET current_count = '$currentCount' WHERE id = '$id'";
+
+        $res = exeSQL($sql,"UPDATE");
     }
 ?>
