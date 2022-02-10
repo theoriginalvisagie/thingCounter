@@ -9,8 +9,12 @@ include_once("../Libraries/sqlLib/sqlLib.php");
         $name = $_POST['counterName'];
         $currentCount = $_POST['currentCount'];
         $sql = "INSERT INTO counters(name,current_count) VALUES('$name','$currentCount')";
-        echo $sql;
+        // echo $sql;
         $res = runInsert($sql);
-
+        if($res){
+            echo "true";
+        }else{
+            echo "false";
+        }
     }
 ?>

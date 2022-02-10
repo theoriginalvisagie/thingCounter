@@ -67,7 +67,7 @@
         }
 
         function displayAddCounter(){
-            $arr = getColumns("counters","id,dateCreated");
+            $arr = getColumns("counters","id,user");
 
             echo "<table class='table table-striped'>";
 

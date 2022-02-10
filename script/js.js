@@ -18,9 +18,13 @@ function saveNewCounter(){
         url: 'http://localhost/thingCounter/ajax/ajaxCounter.php',
         type: 'post',
         data: {'action':'saveNewCounter', "counterName":counterName , "currentCount":currentCount},
-        success: function(response){
-            
-                    console.log(response);
+        success: function(response){  
+            if(respone == "true"){
+                location.reload();
+            }else{
+                alert("Error: " + response);
+            }
+            console.log(response);
         }         
     });
     
