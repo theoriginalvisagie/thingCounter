@@ -8,12 +8,6 @@
             // echo $this->getAllCounters();
             echo "<div id='counter'>
                     <table>";
-                        // <tr>
-                        //     <td><h1>First Counter: </h1></td>
-                        //     <td><h1 id='minusCount' name='minusCount' onclick='changeCountTotal(\"minusCount\")'><i class='fas fa-minus-circle'></i></h1></td>
-                        //     <td><h1 id='countTotal' name='countTotal'>234</h1></td>
-                        //     <td><h1 id='plusCount' name='plusCount' onclick='changeCountTotal(\"plusCount\")'><i class='fas fa-plus-circle'></i></h1></td>
-                        // </tr>";
             $this->getAllCounters();
 
                         echo"<tr>
